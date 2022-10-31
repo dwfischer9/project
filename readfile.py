@@ -16,8 +16,25 @@ def parseFiles():
     studentNamesandID = list()
     for i in range(len(studentId2)-1): #creates a 2D array with student ID and Names
         studentNamesandID.append([studentId2[i],studentName[i]])
-    print(studentNamesandID)
+
     inFile.close()
-###def mergeStudentData(studentNamesandId, studentData):
-    ###print(studen)
+    studentRecords = mergeStudentData(studentNamesandID,studentData)
+    print(studentRecords)
+def mergeStudentData(studentNamesandId, studentData):
+    for i in range(len(studentNamesandId) -1): ## Appends names to corresponding values from the file that did not have names associated with them
+        for j in range(len(studentData) - 1):
+            if(studentData[j][0] == studentData[i][0] and i != j):
+                studentData[j].append(studentData[i][1])
+                studentData[j].append(studentData[i][2])
+            if(studentNamesandId[i][0] == studentData[j][0]):
+                studentData[j].append(studentNamesandId[i][1])
+            ## at this point, studentData has all of the data we need, however, some elements only have
+            # partial data on a student. A proper entry has six parts to it, so we trim out
+            # any entries less than 6 in length
+    for ele in list(studentData):
+        if len(ele) < 6:
+            studentData.remove(ele)
+## now , we have a 2d array in the format of: 
+# [int studentID, String course1, String testScores1, String name, String course2, string testScores2 ]
+    return studentData
 parseFiles()
