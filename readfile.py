@@ -38,7 +38,7 @@ def mergeStudentData(studentNamesandId, studentData):
         if len(ele) < 6:
             studentData.remove(ele)
 ## now , we have a 2d array in the format of: 
-# [int studentID, String course1, String testGrades1 String course2, string testGrades2 ]
+# [String name, int studentID, String course1, String testGrades1 String course2, string testGrades2 ]
 # test grades are stored as a comma delimited string and must be split and indexed in order to calculate final weighted average
 
     return studentData
