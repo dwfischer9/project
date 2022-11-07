@@ -9,7 +9,8 @@ class Student:
         self.course2 = course2
         self.testGrades2 = testGrades2
 ##TODO: create method that converts string of grades into integers and calculates final weighted grade
-##TODO: create toString method that takes all information and formats it as requested by the assignment. Should be formatted as: studentID, name, course1, final grade1, 
+##TODO: create toString method that takes all information and formats it as requested by the assignment.
+# Should be formatted as: studentID, name, course1, finalgrade1
       #  and studentID, name, course2, finalGrade2 on a separate line.
 ##TODO: implement getter methods. these will be used in main.py
     def __str__(self):
