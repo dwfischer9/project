@@ -22,7 +22,9 @@ def parseFiles():
 
     inFile.close()
     studentRecords = mergeStudentData(studentNamesandID,studentCoursesAndGrades)
-    print(studentRecords)
+    return studentRecords
+
+
 def mergeStudentData(studentNamesandId, studentData):
     for i in range(len(studentNamesandId) -1): ## Appends names to corresponding values from the file that did not have names associated with them
         for j in range(len(studentData) - 1):
@@ -42,4 +44,3 @@ def mergeStudentData(studentNamesandId, studentData):
 # test grades are stored as a comma delimited string and must be split and indexed in order to calculate final weighted average
 
     return studentData
-parseFiles()
