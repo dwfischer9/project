@@ -5,21 +5,23 @@ from readfile import mergeStudentData, parseFiles
         #each of these strings is to be written to the output file, output.txt.
         
 def main():
-    fileName1 = "CourseFile.txt"
-    fileName2 = "NameFile.txt"
-    outFile = open("output.txt","w");
-    studentData = parseFiles(fileName1, fileName2)
+    try:
+        fileName1 = "CourseFile.txt"
+        fileName2 = "NameFile.txt"
+        outFile = open("output.txt","w");
+        studentData = parseFiles(fileName1, fileName2)
+        
+        outFile.write("Student ID      Student Name      Course Code      Final Grade\n ----------------------------------------------------------------\n")
+        for e in studentData:
+            stringToFile(e,outFile)
+        outFile.close()
+
+    except FileNotFoundError:
+        print("Missing the required files")
     
-<<<<<<< Updated upstream
-    outFile.write("Student ID      Student Name      Course Code      Final Grade\n ----------------------------------------------------------------\n")
-    for e in studentData:
-        stringToFile(e,outFile)
-    outFile.close()
-=======
     except NameError:
         print("Missing required method")
         
->>>>>>> Stashed changes
 def stringToFile(student,outFile):
     if(len(student) == 4):
         data = str(Student(student[0], student[1] , student[2] , student[3])) + "\n"

@@ -7,7 +7,7 @@ class Student:
         self.course = course
         self.testGrades = testGrades
     def __str__(self):
-        return str(self.studentID + "       " + self.name + "       " + self.course + "     " + str(self.calcFinalGrade())) 
+        return str("{0:15}{1:20}{2:15}{3:5}".format(self.getStudentID,self.getName,self.getCourse,self.calcFinalGrade())) 
     def getName(self):
         return self.name
     def getStudentID(self):
