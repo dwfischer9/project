@@ -10,10 +10,16 @@ def main():
     outFile = open("output.txt","w");
     studentData = parseFiles(fileName1, fileName2)
     
+<<<<<<< Updated upstream
     outFile.write("Student ID      Student Name      Course Code      Final Grade\n ----------------------------------------------------------------\n")
     for e in studentData:
         stringToFile(e,outFile)
     outFile.close()
+=======
+    except NameError:
+        print("Missing required method")
+        
+>>>>>>> Stashed changes
 def stringToFile(student,outFile):
     if(len(student) == 4):
         data = str(Student(student[0], student[1] , student[2] , student[3])) + "\n"
