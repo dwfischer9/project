@@ -1,9 +1,8 @@
 from student import Student
 from readfile import mergeStudentData, parseFiles
 
-##TODO: Make a method that, for each element in the 2D array from readFile.py, constructs a student object and call the str() method on it
-        #each of these strings is to be written to the output file, output.txt.
-        
+#main handles the input files, completes the student object and handles any exceptions
+
 def main():
     try:
         fileName1 = "CourseFile.txt"
@@ -16,12 +15,16 @@ def main():
             stringToFile(e,outFile)
         outFile.close()
 
+    #in case a required input file not found, return error
     except FileNotFoundError:
         print("Missing the required files")
     
+    #in case a required method not found, return error
     except NameError:
         print("Missing required method")
         
+#method handling writing file output to text file titled output.txt
+
 def stringToFile(student,outFile):
     if(len(student) == 4):
         data = str(Student(student[0], student[1] , student[2] , student[3])) + "\n"
