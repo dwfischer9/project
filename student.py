@@ -7,12 +7,15 @@ class Student:
         self.course = course
         self.testGrades = testGrades
     def __str__(self):
-        return str("{0:15}{1:20}{2:15}{3:5}".format(self.getStudentID,self.getName,self.getCourse,self.calcFinalGrade())) 
+        return str("{0:15}{1:20}{2:15}{3:5}".format(self.getStudentID(),self.getName(),self.getCourse(),self.calcFinalGrade())) 
     def getName(self):
         return self.name
     def getStudentID(self):
+        assert len(self.studentID) == 9, "Student ID number invalid";
         return self.studentID
+
     def getCourse(self):
+        assert len(self.course) == 5, "Course code invalid";
         return self.course
     def getTestGrades(self):
         return self.testGrades

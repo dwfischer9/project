@@ -1,5 +1,5 @@
-Student ID     Student Name      Course Code      Final Grade
-----------------------------------------------------------------
+Student ID      Student Name      Course Code      Final Grade
+ ----------------------------------------------------------------
 306851690      Bevan Morton        CP460           70.4
 413787382      Markus Cote         CP164           75.8
 454730171      Elouise Kouma       CP414           79.0

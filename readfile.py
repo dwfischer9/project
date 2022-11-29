@@ -5,7 +5,8 @@ def parseFiles(fileName1, fileName2):
         lines = inFile.read() # get all text from the file as a string
         studentId = re.findall("\d{9}",lines) #create a list with all student ID's in the input file
         courseCodes = re.findall("[A-Z]{2}\d{3}", lines) #create a list with all course codes in the input file 
-        testGrades = re.findall(" \d{2}, \d{2}, \d{2}, \d{2}", lines) #create a list with all test scores in the input fuile
+        testGrades = re.findall(" \d{2}[,.!?\\-] \d{2}[,.!?\\-] \d{2}[,.!?\\-] \d{2}", lines) #create a list with all test scores in the input file
+
         studentCoursesAndGrades = list()
         for i in range(len(studentId)): #create a 2d array with ID courses and scores.
             studentCoursesAndGrades.append([studentId[i],courseCodes[i],testGrades[i]])
