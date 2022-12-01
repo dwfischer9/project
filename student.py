@@ -1,5 +1,6 @@
 from readfile import parseFiles
-class Student:
+from person import Person
+class Student(Person):
     # [String name, int studentID, String course, String testGrades]
     def __init__(self, studentID, course, testGrades,name):
         self.name = name
@@ -7,13 +8,11 @@ class Student:
         self.course = course
         self.testGrades = testGrades
     def __str__(self):
-        return str("{0:15}{1:20}{2:15}{3:5}".format(self.getStudentID(),self.getName(),self.getCourse(),self.calcFinalGrade())) 
-    def getName(self):
-        return self.name
+        return str("{0:15}{1:20}{2:15}{3:5}".format(self.getStudentID(),self.getName(),
+                self.getCourse(),self.calcFinalGrade())) 
     def getStudentID(self):
         assert len(self.studentID) == 9, "Student ID number invalid";
         return self.studentID
-
     def getCourse(self):
         assert len(self.course) == 5, "Course code invalid";
         return self.course
@@ -23,5 +22,6 @@ class Student:
     ##the following: (test,1,2,3) 3x20% + (final exam) 40% = 100%.
     def calcFinalGrade(self):
         grades = self.getTestGrades().split(", ");
-        finalGrade = round((.20 * int(grades[0])) + (.20 * int(grades[1])) + (.20 * int(grades[2])) + (.40 * int(grades[3])),1)
+        finalGrade = round((.20 * int(grades[0])) + (.20 * int(grades[1])) + 
+        (.20 * int(grades[2])) + (.40 * int(grades[3])),1)
         return finalGrade
