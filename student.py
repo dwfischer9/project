@@ -21,7 +21,6 @@ class Student(Person):
         return self.course
     
     def getTestGrades(self):
-        #Must have 4 grades
         return self.testGrades
     
     ##each test weighs 20% and the final exam weighs 40%. The final grade is calculated with

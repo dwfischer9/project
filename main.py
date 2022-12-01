@@ -10,7 +10,7 @@ def main():
         outFile = open("output.txt","w");
         studentData = parseFiles(fileName1, fileName2)
         
-        outFile.write("Student ID      Student Name      Course Code      Final Grade\n ----------------------------------------------------------------\n")
+        outFile.write("Student ID      Student Name      Course Code      Final Grade\n----------------------------------------------------------------\n")
         for e in studentData:
             stringToFile(e,outFile)
         outFile.close()
