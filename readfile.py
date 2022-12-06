@@ -28,8 +28,4 @@ def mergeStudentData(studentNamesandId, studentData):
         for data in studentData:
             if(student[0] == data[0]): #if the entries have the same ID
                 data.append(student[1]) #append the corresponding name to the student's data
-
-## now , we have a 2d array in the format of: 
-# [String name, int studentID, String course1, String testGrades1 String course2, string testGrades2 ]
-# test grades are stored as a comma delimited string and must be split and indexed in order to calculate final weighted average
     return studentData

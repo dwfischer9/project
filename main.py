@@ -28,5 +28,8 @@ def main():
 def stringToFile(student,outFile):
     if(len(student) == 4):
         data = str(Student(student[0], student[1] , student[2] , student[3])) + "\n"
-        outFile.write(data)
+        if(len(student[1])<=20):
+            outFile.write(data)
+        else:
+            print("Student name is longer than 20  characters")
 main()

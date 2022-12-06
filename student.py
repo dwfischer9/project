@@ -1,4 +1,5 @@
 from readfile import parseFiles
+import re
 from person import Person
 class Student(Person):
     # [String name, int studentID, String course, String testGrades]
@@ -10,6 +11,7 @@ class Student(Person):
     def __str__(self):
         return str("{0:15}{1:20}{2:15}{3:5}".format(self.getStudentID(),self.getName(),self.getCourse(),self.calcFinalGrade())) 
     def getName(self):
+        assert len(self.name) <= 20, "Name must be less than 20 characters"
         return self.name
     def getStudentID(self):
         #Must be 9 characters long
@@ -26,7 +28,9 @@ class Student(Person):
     ##each test weighs 20% and the final exam weighs 40%. The final grade is calculated with
     ##the following: (test,1,2,3) 3x20% + (final exam) 40% = 100%.
     def calcFinalGrade(self):
-        grades = self.getTestGrades().split(", ");
+        grades = re.split('[,.!?\\-]',self.getTestGrades())  ## split test grades on multiple delimiters
         finalGrade = round((.20 * int(grades[0])) + (.20 * int(grades[1])) + 
         (.20 * int(grades[2])) + (.40 * int(grades[3])),1)
+        if(finalGrade < 0):
+            finalGrade = 0 # final grade cannot be negative, so we set it to zero
         return finalGrade
